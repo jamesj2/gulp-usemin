@@ -88,6 +88,14 @@ If exist used for modify files. If does not contain string 'concat', then it add
 Type: `String`
 Relative location to html file for new concatenated js and css.
 
+#### websitePath
+Type: `String`
+Website base path for new concatenated js and css.
+
+#### srcPathRemove
+Type: `Array`
+List of string or regex to remove from script path.  Useful for template paths.
+
 ## Use case
 
 ```
@@ -107,12 +115,12 @@ Relative location to html file for new concatenated js and css.
 We want to optimize `foo.js` and `bar.js` into `optimized.js`, referenced using relative path. `index.html` should contain the following block:
 
 ```
-    <!-- build:css style.css -->
+    <!-- build:css {destination}style.css -->
     <link rel="stylesheet" href="css/clear.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <!-- endbuild -->
 
-    <!-- build:js js/optimized.js -->
+    <!-- build:js {destination}js/optimized.js -->
     <script src="assets/js/foo.js"></script>
     <script src="assets/js/bar.js"></script>
     <!-- endbuild -->
